@@ -1,4 +1,4 @@
-              ███████╗██╗   ██╗███████╗██████╗  ██████╗ ██████╗ 
+        ███████╗██╗   ██╗███████╗██████╗  ██████╗ ██████╗ 
         ██╔════╝╚██╗ ██╔╝██╔════╝██╔══██╗██╔═══██╗██╔══██╗
         ███████╗ ╚████╔╝ ███████╗██████╔╝██║   ██║██████╔╝
         ╚════██║  ╚██╔╝  ╚════██║██╔══██╗██║   ██║██╔══██╗
@@ -10,16 +10,16 @@
         │        🤖 RobSys        │
         │     Bot AppWeb Core     │
         └──────────┬──────────────┘
-   	       Bot AppWeb
-      🤖 RobSys - AppWeb Bot System
+   		   Bot AppWeb
+    		   🤖 RobSys - AppWeb Bot System  -
         ┌──────────▼──────────┐
         │   [  API  ] [ DB ]  │
         │   [ WEB ]  [ BOT ]  │
         └──────────┬──────────┘
                    │
         ┌──────────▼──────────┐
-        │   Automation Core   │
+        │   Nucleo Automation │
         │   MercadoLibre Bot  │
         │   Facturación Libre │
         └─────────────────────┘
-Proyecto RobSys - Sistema de automatización AppWeb
+	Proyecto RobSys - Sistema de automatización AppWeb -

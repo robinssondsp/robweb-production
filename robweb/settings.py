@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# =========================xxxxxxxx
+# =========================
 # INTERNACIONALIZACIÓN
 # =========================
 

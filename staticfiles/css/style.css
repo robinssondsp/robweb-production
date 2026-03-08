@@ -40,33 +40,15 @@ html, body {
 }
 
 /* ========================= */
-/* VIDEO NOTICIAS */
-/* ========================= */
-.banner-noticias {
-    width: 100%;
-    height: 500px;
-    margin-top: 100px; /* espacio para banner fijo */
-    overflow: hidden;
-    position: relative;
-}
-
-.banner-noticias video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* ========================= */
 /* LOGO PROFESIONAL */
 /* ========================= */
 .logo-container {
     position: fixed;
     top: 0;
     left: 40px;
-    height: 100px; /* mismo alto que banner */
+    height: 100px;
     display: flex;
-    align-items: center; /* centrado vertical real */
+    align-items: center;
     z-index: 200;
 }
 
@@ -77,12 +59,46 @@ html, body {
 }
 
 /* ========================= */
+/* BANNER NOTICIAS NETFLIX */
+/* ========================= */
+.banner-noticias {
+    width: 100%;
+    margin-top: 100px; /* debajo del banner fijo */
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 21 / 9; /* estilo cinematográfico */
+}
+
+.banner-noticias video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Degradado inferior estilo Netflix */
+.banner-noticias::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0),
+        rgba(0,0,0,0.85)
+    );
+    pointer-events: none;
+}
+
+/* ========================= */
 /* CONTENIDO PRINCIPAL */
 /* ========================= */
 #app {
     width: 95%;
     max-width: 1200px;
-    margin: 80px auto 60px auto;
+    margin: 60px auto 80px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -232,10 +248,6 @@ model-viewer {
 /* ========================= */
 @media (max-width: 768px) {
 
-    .banner-noticias {
-        height: 280px;
-    }
-
     .logo-container {
         left: 20px;
     }
@@ -246,6 +258,10 @@ model-viewer {
 
     #app {
         margin-top: 40px;
+    }
+
+    .banner-noticias {
+        aspect-ratio: 16 / 9; /* más compacto en móvil */
     }
 }
 
