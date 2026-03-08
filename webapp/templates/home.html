@@ -1,113 +1,159 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Robot Premium</title>
 
 <script type="module"
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 </script>
 
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<!-- ========================= -->
-<!-- BANNER SUPERIOR -->
-<!-- ========================= -->
-<div class="banner" id="banner">
-    <img src="{% static 'Banner.jpg' %}" alt="Banner">
-</div>
 
 <!-- ========================= -->
-<!-- VIDEO BANNER NOTICIAS -->
+<!-- BANNER -->
 <!-- ========================= -->
-<div class="banner-noticias">
-    <video 
-        src="{% static 'noticias.mp4' %}"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata">
-    </video>
+
+<div class="banner" id="banner">
+
+<img src="{% static 'Banner.jpg' %}" alt="Banner">
+
 </div>
+
 
 <!-- ========================= -->
 <!-- LOGO -->
 <!-- ========================= -->
+
 <div class="logo-container">
-    <img src="{% static 'Logo.png' %}" class="logo" alt="Logo">
+
+<img src="{% static 'Logo.png' %}" class="logo" alt="Logo">
+
 </div>
+
 
 <!-- ========================= -->
 <!-- CONTENIDO PRINCIPAL -->
 <!-- ========================= -->
+
 <div id="app">
 
-    <div class="video-box glass">
 
-        <div class="rpa-overlay">
-            <div class="scan-line"></div>
+<!-- VIDEO ESCANER -->
 
-            <div class="micro-data top-left">
-                ESCANEANDO VENTAS...
-            </div>
+<div class="video-box glass">
 
-            <div class="micro-data bottom-right">
-                VALIDANDO FACTURAS
-            </div>
-        </div>
+<div class="rpa-overlay">
 
-        <video 
-            src="{% static 'models/video.mp4' %}"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata">
-        </video>
+<div class="scan-line"></div>
 
-    </div>
+<div class="micro-data top-left">
+ESCANEANDO VENTAS...
+</div>
 
-    <div class="robot-box">
-
-        <model-viewer 
-            src="{% static 'robot.glb' %}"
-            camera-controls
-            auto-rotate
-            auto-rotate-delay="0"
-            rotation-per-second="6deg"
-            camera-orbit="auto auto 36m"
-            min-camera-orbit="auto auto 35m"
-            max-camera-orbit="auto auto 37m"
-            field-of-view="28deg"
-            exposure="1.05"
-            shadow-intensity="0.8"
-            environment-image="neutral"
-            interaction-prompt="none"
-            alt="robot">
-        </model-viewer>
-
-    </div>
+<div class="micro-data bottom-right">
+VALIDANDO FACTURAS
+</div>
 
 </div>
 
+<video
+src="{% static 'models/video.mp4' %}"
+autoplay
+muted
+loop
+playsinline
+preload="auto">
+</video>
+
+</div>
+
+
+
+<!-- ROBOT -->
+
+<div class="robot-box">
+
+<model-viewer
+
+src="{% static 'robot.glb' %}"
+
+camera-controls
+auto-rotate
+auto-rotate-delay="0"
+rotation-per-second="8deg"
+
+camera-orbit="auto auto 36m"
+min-camera-orbit="auto auto 35m"
+max-camera-orbit="auto auto 37m"
+
+field-of-view="28deg"
+
+exposure="1.05"
+shadow-intensity="0.8"
+environment-image="neutral"
+
+interaction-prompt="none"
+
+alt="robot">
+
+</model-viewer>
+
+</div>
+
+
+
+<!-- BOTON LOGO2 -->
+
+<div class="action-button-container">
+
+<button class="logo-button">
+
+<img src="{% static 'Logo2.png' %}" alt="Logo botón">
+
+</button>
+
+</div>
+
+
+</div>
+
+
+
+<!-- SCRIPT SCROLL BANNER -->
+
 <script>
+
 const banner = document.getElementById("banner");
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        banner.classList.add("banner-small");
-    } else {
-        banner.classList.remove("banner-small");
-    }
+
+if (window.scrollY > 50) {
+
+banner.classList.add("banner-small");
+
+} else {
+
+banner.classList.remove("banner-small");
+
+}
+
 });
+
 </script>
+
 
 </body>
 </html>
