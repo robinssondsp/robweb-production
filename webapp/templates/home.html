@@ -4,18 +4,22 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Robot Premium</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<script type="module"
-src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-</script>
+    <title>RobWeb AI</title>
 
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="module"
+            src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+    </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
 
 </head>
 
@@ -23,14 +27,26 @@ src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 
 
 <!-- ========================= -->
-<!-- BANNER -->
+<!-- BACKGROUND FX -->
 <!-- ========================= -->
 
-<div class="banner" id="banner">
+<div class="background-grid"></div>
 
-<img src="{% static 'Banner.jpg' %}" alt="Banner">
+<div class="global-overlay"></div>
 
-</div>
+
+<!-- ========================= -->
+<!-- HEADER / BANNER -->
+<!-- ========================= -->
+
+<header class="banner" id="banner">
+
+    <img src="{% static 'Banner.jpg' %}"
+         alt="Banner Principal">
+
+    <div class="banner-shadow"></div>
+
+</header>
 
 
 <!-- ========================= -->
@@ -39,118 +55,270 @@ src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 
 <div class="logo-container">
 
-<img src="{% static 'Logo.png' %}" class="logo" alt="Logo">
+    <img src="{% static 'Logo.png' %}"
+         class="logo"
+         alt="RobWeb Logo">
 
 </div>
+
 
 
 <!-- ========================= -->
-<!-- CONTENIDO PRINCIPAL -->
+<!-- MAIN CONTENT -->
 <!-- ========================= -->
 
-<div id="app">
-
-
-<!-- VIDEO ESCANER -->
-
-<div class="video-box glass">
-
-<div class="rpa-overlay">
-
-<div class="scan-line"></div>
-
-<div class="micro-data top-left">
-ESCANEANDO VENTAS...
-</div>
-
-<div class="micro-data bottom-right">
-VALIDANDO FACTURAS
-</div>
-
-</div>
-
-<video
-src="{% static 'models/video.mp4' %}"
-autoplay
-muted
-loop
-playsinline
-preload="auto">
-</video>
-
-</div>
+<main class="main-content">
 
 
 
-<!-- ROBOT -->
+    <!-- ========================= -->
+    <!-- HERO VIDEO NOTICIAS -->
+    <!-- ========================= -->
 
-<div class="robot-box">
-
-<model-viewer
-
-src="{% static 'robot.glb' %}"
-
-camera-controls
-auto-rotate
-auto-rotate-delay="0"
-rotation-per-second="8deg"
-
-camera-orbit="auto auto 36m"
-min-camera-orbit="auto auto 35m"
-max-camera-orbit="auto auto 37m"
-
-field-of-view="28deg"
-
-exposure="1.05"
-shadow-intensity="0.8"
-environment-image="neutral"
-
-interaction-prompt="none"
-
-alt="robot">
-
-</model-viewer>
-
-</div>
+    <section class="hero-news-container">
 
 
+        <div class="hero-overlay">
 
-<!-- BOTON LOGO2 -->
+            <div class="scan-line"></div>
 
-<div class="action-button-container">
+            <div class="noise-overlay"></div>
 
-<button class="logo-button">
+            <div class="hero-hud top-left">
+                MERCADOLIBRE ONLINE
+            </div>
 
-<img src="{% static 'Logo2.png' %}" alt="Logo botón">
+            <div class="hero-hud top-right">
+                DGI CONNECTED
+            </div>
 
-</button>
+            <div class="hero-hud bottom-left">
+                RPA ACTIVE
+            </div>
 
-</div>
+            <div class="hero-hud bottom-right">
+                LIVE TRANSMISSION
+            </div>
+
+        </div>
 
 
-</div>
+        <video class="hero-video"
+               autoplay
+               muted
+               loop
+               playsinline
+               preload="metadata">
+
+            <source src="{% static 'noticias.mp4' %}"
+                    type="video/mp4">
+
+        </video>
+
+
+        <div class="live-indicator">
+
+            <span class="live-dot"></span>
+
+            EN VIVO
+
+        </div>
+
+
+    </section>
 
 
 
-<!-- SCRIPT SCROLL BANNER -->
+
+
+    <!-- ========================= -->
+    <!-- VIDEO RPA -->
+    <!-- ========================= -->
+
+    <section class="rpa-section glass-container">
+
+
+        <div class="section-header">
+
+            <h2>
+                FACTURACIÓN AUTOMÁTICA IA
+            </h2>
+
+            <span>
+                SISTEMA OPERATIVO EN TIEMPO REAL
+            </span>
+
+        </div>
+
+
+        <div class="video-wrapper">
+
+
+            <div class="video-overlay">
+
+                <div class="scan-line"></div>
+
+                <div class="noise-overlay"></div>
+
+                <div class="micro-data top-left">
+                    ESCANEANDO ÓRDENES...
+                </div>
+
+                <div class="micro-data top-right">
+                    VALIDANDO DATOS
+                </div>
+
+                <div class="micro-data bottom-left">
+                    PDF GENERATED
+                </div>
+
+                <div class="micro-data bottom-right">
+                    FACTURA ADJUNTADA
+                </div>
+
+            </div>
+
+
+            <video class="rpa-video"
+                   autoplay
+                   muted
+                   loop
+                   playsinline
+                   preload="metadata">
+
+                <source src="{% static 'models/video.mp4' %}"
+                        type="video/mp4">
+
+            </video>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- ROBOT 3D -->
+    <!-- ========================= -->
+
+    <section class="robot-section glass-container">
+
+
+        <div class="robot-overlay">
+
+            <div class="scan-line"></div>
+
+            <div class="robot-glow"></div>
+
+        </div>
+
+
+        <div class="robot-header">
+
+            <h2>
+                IA OPERATIVA
+            </h2>
+
+            <span>
+                MOTOR DE AUTOMATIZACIÓN RPA
+            </span>
+
+        </div>
+
+
+        <model-viewer
+
+            src="{% static 'robot.glb' %}"
+
+            alt="Robot IA"
+
+            auto-rotate
+            auto-rotate-delay="0"
+
+            camera-controls
+
+            shadow-intensity="1"
+
+            environment-image="neutral"
+
+            exposure="1"
+
+            loading="lazy"
+
+            interaction-prompt="none">
+
+        </model-viewer>
+
+
+        <div class="robot-status">
+
+            <span class="status-dot"></span>
+
+            SISTEMA ESTABLE
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- TESLA BUTTON -->
+    <!-- ========================= -->
+
+    <section class="button-section">
+
+
+        <button class="tesla-button">
+
+
+            <div class="button-glow"></div>
+
+
+            <img src="{% static 'Logo2.png' %}"
+                 alt="Logo Tesla">
+
+
+        </button>
+
+
+    </section>
+
+
+</main>
+
+
+
+
+
+<!-- ========================= -->
+<!-- SCROLL EFFECT -->
+<!-- ========================= -->
 
 <script>
 
-const banner = document.getElementById("banner");
+    const banner = document.getElementById("banner");
 
-window.addEventListener("scroll", () => {
+    window.addEventListener("scroll", () => {
 
-if (window.scrollY > 50) {
+        if (window.scrollY > 40) {
 
-banner.classList.add("banner-small");
+            banner.classList.add("banner-small");
 
-} else {
+        } else {
 
-banner.classList.remove("banner-small");
+            banner.classList.remove("banner-small");
 
-}
+        }
 
-});
+    });
 
 </script>
 
