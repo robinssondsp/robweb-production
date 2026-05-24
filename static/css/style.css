@@ -489,7 +489,7 @@ body{
     letter-spacing:2px;
 
 }
-robotoverlay
+
 .live-dot{
 
     width:10px;
@@ -518,7 +518,7 @@ robotoverlay
     }
 
 }
-modelviewer
+
 
 /* ===================================================== */
 /* ROBOT */
@@ -586,11 +586,9 @@ modelviewer
     z-index:10;
 
     pointer-events:none;
-    model-viewer{
-    position:relative;
-    z-index:5;
+
 }
-.robotsection
+
 .robot-glow{
 
     position:absolute;
@@ -603,20 +601,38 @@ modelviewer
 
 }
 
-model-viewer{
+.robot-container {
 
-    position:relative;
+    position: relative;
 
-    z-index:5;
+    width: 100%;
 
-    width:100%;
-    height:650px;
+    height: 650px;
 
-    display:block;
+    border-radius: 24px;
 
-    background:transparent;
+    overflow: hidden;
 
-    --poster-color:transparent;
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(0,255,255,0.15),
+        rgba(0,0,0,0.95)
+    );
+
+}
+
+model-viewer {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    background: transparent;
+
+    --poster-color: transparent;
 
 }
 
@@ -776,7 +792,7 @@ model-viewer{
 
     .robot-section{
 
-        height:560px;
+        min-height:560px;
 
     }
 
@@ -824,6 +840,12 @@ model-viewer{
 
     .robot-section{
 
+        min-height:420px;
+
+    }
+
+    model-viewer{
+
         height:420px;
 
     }
@@ -854,7 +876,13 @@ model-viewer{
 
     .robot-section{
 
-        height:340px;
+        min-height:340px;
+
+    }
+
+    model-viewer{
+
+        height:320px;
 
     }
 
@@ -880,9 +908,233 @@ model-viewer{
 
     }
 
-    @media (max-width:768px){
+}
 
-    model-viewer{
+/* ===================================================== */
+/* HTML CLASS FIX */
+/* ===================================================== */
+
+.top-banner{
+
+    position:relative;
+
+    width:100%;
+    overflow:hidden;
+
+}
+
+.banner-image{
+
+    width:100%;
+    display:block;
+    object-fit:cover;
+
+}
+
+.main-wrapper{
+
+    width:min(94%,1600px);
+
+    margin:auto;
+
+    padding-top:40px;
+    padding-bottom:80px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:42px;
+
+}
+
+.glass-panel{
+
+    position:relative;
+
+    background:rgba(8,15,30,0.45);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.45),
+    inset 0 0 30px rgba(255,255,255,.03);
+
+}
+
+.news-section,
+.rpa-section,
+.robot-section{
+
+    padding:26px;
+
+}
+
+.news-video-wrapper,
+.rpa-video-container{
+
+    position:relative;
+
+    width:100%;
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+}
+
+.news-video,
+.rpa-video{
+
+    width:100%;
+    display:block;
+
+    object-fit:cover;
+
+}
+
+.video-scan{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:2px;
+
+    background:
+    linear-gradient(
+        to right,
+        transparent,
+        rgba(0,255,255,.9),
+        transparent
+    );
+
+    animation:scanMove 3s linear infinite;
+
+    z-index:30;
+
+}
+
+.hud-left{
+
+    position:absolute;
+
+    top:18px;
+    left:20px;
+
+    z-index:40;
+
+    color:#00f0ff;
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+}
+
+.hud-right{
+
+    position:absolute;
+
+    top:18px;
+    right:20px;
+
+    z-index:40;
+
+    color:#00f0ff;
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+}
+
+.system-status{
+
+    position:absolute;
+
+    bottom:20px;
+    left:20px;
+
+    z-index:40;
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    color:#00f0ff;
+
+    letter-spacing:2px;
+
+}
+
+.robot-container{
+
+    position:relative;
+
+    width:100%;
+
+    height:650px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(0,255,255,.15),
+        rgba(0,0,0,.95)
+    );
+
+}
+
+model-viewer{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    background:transparent;
+
+    --poster-color:transparent;
+
+}
+
+.tesla-button-section{
+
+    display:flex;
+    justify-content:center;
+
+}
+
+.tesla-logo{
+
+    width:72%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+/* ===================================================== */
+/* RESPONSIVE */
+/* ===================================================== */
+
+@media (max-width:768px){
+
+    .robot-container{
 
         height:420px;
 
@@ -892,7 +1144,7 @@ model-viewer{
 
 @media (max-width:480px){
 
-    model-viewer{
+    .robot-container{
 
         height:320px;
 

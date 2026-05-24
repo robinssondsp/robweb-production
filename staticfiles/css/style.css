@@ -1,281 +1,893 @@
-/* ========================= */
+/* ===================================================== */
 /* RESET */
-/* ========================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-:root {
-    --scan-speed: 4s;
-    --accent-color: rgba(0,255,255,0.9);
+:root{
+
+    --cyan:#00f0ff;
+    --dark:#020617;
+
+    --glass:rgba(8,15,30,0.45);
+
+    --radius:28px;
+
+    --scan-speed:3.5s;
+
 }
 
-html, body {
-    width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
-    font-family: 'Orbitron', sans-serif;
-    background: radial-gradient(circle at top, #003d7a 0%, #001f3f 40%, #000c1a 100%);
+
+/* ===================================================== */
+/* BODY */
+/* ===================================================== */
+
+html,
+body{
+
+    width:100%;
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    font-family:'Orbitron',sans-serif;
+
+    background:
+    radial-gradient(circle at top,
+    #003566 0%,
+    #001d3d 45%,
+    #000814 100%);
+
+    color:white;
+
 }
 
-/* ========================= */
-/* BANNER SUPERIOR FIJO */
-/* ========================= */
-.banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    overflow: hidden;
-    z-index: 100;
+
+/* ===================================================== */
+/* BACKGROUND */
+/* ===================================================== */
+
+.background-grid{
+
+    position:fixed;
+    inset:0;
+
+    z-index:-3;
+
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+    background-size:40px 40px;
+
 }
 
-.banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.global-overlay{
+
+    position:fixed;
+    inset:0;
+
+    z-index:-2;
+
+    background:
+    radial-gradient(circle at center,
+    transparent 0%,
+    rgba(0,0,0,0.35) 100%);
+
+    pointer-events:none;
+
 }
 
-/* ========================= */
-/* LOGO PROFESIONAL */
-/* ========================= */
-.logo-container {
-    position: fixed;
-    top: 0;
-    left: 40px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    z-index: 200;
+
+/* ===================================================== */
+/* BANNER */
+/* ===================================================== */
+
+.banner{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:110px;
+
+    z-index:100;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(14px);
+
+    transition:all .35s ease;
+
 }
 
-.logo {
-    height: 55%;
-    max-height: 60px;
-    width: auto;
+.banner img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    filter:
+    brightness(.8)
+    contrast(1.08);
+
 }
 
-/* ========================= */
-/* BANNER NOTICIAS NETFLIX */
-/* ========================= */
-.banner-noticias {
-    width: 100%;
-    margin-top: 100px; /* debajo del banner fijo */
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 21 / 9; /* estilo cinematográfico */
+.banner-small{
+
+    height:82px;
+
 }
 
-.banner-noticias video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.banner-shadow{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(to bottom,
+    transparent,
+    rgba(0,0,0,.45));
+
 }
 
-/* Degradado inferior estilo Netflix */
-.banner-noticias::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0),
-        rgba(0,0,0,0.85)
-    );
-    pointer-events: none;
+
+/* ===================================================== */
+/* LOGO */
+/* ===================================================== */
+
+.logo-container{
+
+    position:fixed;
+
+    top:14px;
+    left:28px;
+
+    z-index:150;
+
 }
 
-/* ========================= */
-/* CONTENIDO PRINCIPAL */
-/* ========================= */
-#app {
-    width: 95%;
-    max-width: 1200px;
-    margin: 60px auto 80px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 60px;
+.logo{
+
+    height:clamp(58px,7vw,105px);
+
+    object-fit:contain;
+
+    filter:
+    drop-shadow(0 0 20px rgba(0,255,255,.35));
+
 }
 
-/* ========================= */
-/* VIDEO RPA */
-/* ========================= */
-.video-box {
-    width: 100%;
-    max-width: 520px;
-    position: relative;
+
+/* ===================================================== */
+/* MAIN CONTENT */
+/* ===================================================== */
+
+.main-content{
+
+    width:min(94%,1600px);
+
+    margin:auto;
+
+    padding-top:140px;
+    padding-bottom:90px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:42px;
+
 }
 
-.glass {
-    position: relative;
-    border-radius: 24px;
-    overflow: hidden;
-    background: rgba(10, 20, 40, 0.4);
-    backdrop-filter: blur(18px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+
+/* ===================================================== */
+/* GLASS */
+/* ===================================================== */
+
+.glass-container{
+
+    position:relative;
+
+    background:var(--glass);
+
+    border:
+    1px solid rgba(255,255,255,.06);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.45),
+    inset 0 0 30px rgba(255,255,255,.03);
+
 }
 
-video {
-    width: 100%;
-    height: auto;
-    display: block;
+
+/* ===================================================== */
+/* HERO VIDEO */
+/* ===================================================== */
+
+.hero-news-container{
+
+    position:relative;
+
+    width:100%;
+    height:clamp(260px,42vw,560px);
+
+    border-radius:32px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 30px 70px rgba(0,0,0,.45);
+
 }
 
-/* ========================= */
-/* ESCÁNER VIDEO */
-/* ========================= */
-.rpa-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
+.hero-video{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    filter:
+    brightness(.75)
+    contrast(1.1);
+
 }
 
-.scan-line {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(
-        to right,
-        transparent,
-        var(--accent-color),
-        transparent
-    );
-    animation: scanMove var(--scan-speed) linear infinite;
+
+/* ===================================================== */
+/* HERO OVERLAY */
+/* ===================================================== */
+
+.hero-overlay{
+
+    position:absolute;
+    inset:0;
+
+    z-index:20;
+
+    pointer-events:none;
+
 }
 
-@keyframes scanMove {
-    0% { top: 0%; }
-    100% { top: 100%; }
+
+/* ===================================================== */
+/* RPA SECTION */
+/* ===================================================== */
+
+.rpa-section{
+
+    width:100%;
+
+    padding:26px;
+
 }
 
-.micro-data {
-    position: absolute;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: rgba(0,255,255,0.9);
-    text-shadow: 0 0 8px rgba(0,255,255,0.7);
+.section-header{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:10px;
+
+    margin-bottom:24px;
+
 }
 
-.top-left {
-    top: 18px;
-    left: 20px;
+.section-header h2{
+
+    font-size:clamp(1.2rem,2vw,2rem);
+
+    letter-spacing:3px;
+
+    color:var(--cyan);
+
 }
 
-.bottom-right {
-    bottom: 18px;
-    right: 20px;
-    text-align: right;
+.section-header span{
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+    opacity:.8;
+
 }
 
-/* ========================= */
+
+/* ===================================================== */
+/* VIDEO WRAPPER */
+/* ===================================================== */
+
+.video-wrapper{
+
+    position:relative;
+
+    width:100%;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+}
+
+.rpa-video{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+/* ===================================================== */
+/* VIDEO OVERLAY */
+/* ===================================================== */
+
+.video-overlay{
+
+    position:absolute;
+    inset:0;
+
+    z-index:20;
+
+    pointer-events:none;
+
+}
+
+
+/* ===================================================== */
+/* SCAN LINE */
+/* ===================================================== */
+
+.scan-line{
+
+    position:absolute;
+
+    left:0;
+
+    width:100%;
+    height:2px;
+
+    background:
+    linear-gradient(to right,
+    transparent,
+    var(--cyan),
+    transparent);
+
+    opacity:.9;
+
+    animation:
+    scanMove var(--scan-speed)
+    linear infinite;
+
+}
+
+@keyframes scanMove{
+
+    0%{
+        top:0%;
+    }
+
+    100%{
+        top:100%;
+    }
+
+}
+
+
+/* ===================================================== */
+/* NOISE */
+/* ===================================================== */
+
+.noise-overlay{
+
+    position:absolute;
+    inset:0;
+
+    opacity:.05;
+
+    background-image:
+    radial-gradient(rgba(255,255,255,.25) 1px, transparent 1px);
+
+    background-size:3px 3px;
+
+    mix-blend-mode:screen;
+
+}
+
+
+/* ===================================================== */
+/* MICRO DATA */
+/* ===================================================== */
+
+.micro-data,
+.hero-hud{
+
+    position:absolute;
+
+    font-size:.7rem;
+
+    letter-spacing:2px;
+
+    color:rgba(0,255,255,.9);
+
+    text-shadow:
+    0 0 10px rgba(0,255,255,.7);
+
+}
+
+.top-left{
+    top:18px;
+    left:20px;
+}
+
+.top-right{
+    top:18px;
+    right:20px;
+}
+
+.bottom-left{
+    bottom:18px;
+    left:20px;
+}
+
+.bottom-right{
+    bottom:18px;
+    right:20px;
+}
+
+
+/* ===================================================== */
+/* LIVE */
+/* ===================================================== */
+
+.live-indicator{
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    z-index:25;
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    background:
+    rgba(255,0,0,.14);
+
+    backdrop-filter:blur(10px);
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+}
+
+.live-dot{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:red;
+
+    animation:pulse 1s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.4);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+
+/* ===================================================== */
 /* ROBOT */
-/* ========================= */
-.robot-box {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 28px;
-    overflow: hidden;
-    background: rgba(15,25,45,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* ===================================================== */
+
+.robot-section{
+
+    position:relative;
+
+    width:100%;
+
+    min-height:650px;
+
+    padding:26px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
 }
 
-/* Escáner vertical robot */
-.robot-box::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(0,255,255,0.15) 40%,
-        rgba(0,255,255,0.45) 50%,
-        rgba(0,255,255,0.15) 60%,
-        transparent 100%
-    );
-    mix-blend-mode: screen;
-    filter: blur(6px);
-    animation: robotScan var(--scan-speed) linear infinite;
-    pointer-events: none;
+.robot-header{
+
+    position:absolute;
+
+    top:24px;
+    left:28px;
+
+    z-index:20;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:10px;
+
 }
 
-@keyframes robotScan {
-    0% { transform: translateY(0%); }
-    100% { transform: translateY(200%); }
+.robot-header h2{
+
+    font-size:clamp(1.2rem,2vw,2rem);
+
+    letter-spacing:3px;
+
+    color:var(--cyan);
+
 }
 
-/* Partículas */
-.robot-box::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(0,255,255,0.35) 1px, transparent 1px);
-    background-size: 4px 4px;
-    opacity: 0.05;
-    animation: particlesMove 10s linear infinite;
-    pointer-events: none;
+.robot-header span{
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+    opacity:.8;
+
 }
 
-@keyframes particlesMove {
-    from { transform: translateY(0); }
-    to { transform: translateY(50px); }
+.robot-overlay{
+
+    position:absolute;
+    inset:0;
+
+    z-index:10;
+
+    pointer-events:none;
+
 }
 
-model-viewer {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 0;
+.robot-glow{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(0,255,255,.12),
+    transparent 65%);
+
 }
 
-/* ========================= */
+model-viewer{
+
+    position:relative;
+
+    z-index:5;
+
+    width:100%;
+    height:650px;
+
+    display:block;
+
+    background:transparent;
+
+    --poster-color:transparent;
+
+}
+
+
+/* ===================================================== */
+/* ROBOT STATUS */
+/* ===================================================== */
+
+.robot-status{
+
+    position:absolute;
+
+    bottom:26px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:30;
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px 22px;
+
+    border-radius:999px;
+
+    background:
+    rgba(0,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    font-size:.8rem;
+
+    letter-spacing:2px;
+
+}
+
+.status-dot{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--cyan);
+
+    box-shadow:
+    0 0 16px var(--cyan);
+
+}
+
+
+/* ===================================================== */
+/* BUTTON */
+/* ===================================================== */
+
+.button-section{
+
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+
+}
+
+.tesla-button{
+
+    position:relative;
+
+    width:280px;
+    height:95px;
+
+    border:none;
+
+    border-radius:24px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    135deg,
+    #f7d774,
+    #c89b14,
+    #f7d774);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.45);
+
+    transition:.35s ease;
+
+}
+
+.tesla-button:hover{
+
+    transform:
+    translateY(-6px)
+    scale(1.02);
+
+}
+
+.tesla-button img{
+
+    width:72%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.button-glow{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent);
+
+    transform:translateX(-100%);
+
+    animation:buttonSweep 4s infinite;
+
+}
+
+@keyframes buttonSweep{
+
+    100%{
+        transform:translateX(100%);
+    }
+
+}
+
+
+/* ===================================================== */
 /* RESPONSIVE */
-/* ========================= */
-@media (max-width: 768px) {
+/* ===================================================== */
 
-    .logo-container {
-        left: 20px;
+@media (max-width:992px){
+
+    .main-content{
+
+        gap:34px;
+
     }
 
-    .logo {
-        height: 50%;
+    .robot-section{
+
+        min-height:560px;
+
     }
 
-    #app {
-        margin-top: 40px;
-    }
-
-    .banner-noticias {
-        aspect-ratio: 16 / 9; /* más compacto en móvil */
-    }
 }
 
-@media (min-width: 768px) {
 
-    #app {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 60px;
+@media (max-width:768px){
+
+    .banner{
+
+        height:85px;
+
     }
 
-    .video-box,
-    .robot-box {
-        width: 48%;
+    .logo{
+
+        height:58px;
+
     }
+
+    .main-content{
+
+        width:95%;
+
+        padding-top:115px;
+
+        gap:28px;
+
+    }
+
+    .hero-news-container{
+
+        height:260px;
+
+        border-radius:24px;
+
+    }
+
+    .rpa-section,
+    .robot-section{
+
+        padding:18px;
+
+    }
+
+    .robot-section{
+
+        min-height:420px;
+
+    }
+
+    model-viewer{
+
+        height:420px;
+
+    }
+
+    .tesla-button{
+
+        width:220px;
+        height:78px;
+
+    }
+
+}
+
+
+@media (max-width:480px){
+
+    .logo{
+
+        height:50px;
+
+    }
+
+    .hero-news-container{
+
+        height:220px;
+
+    }
+
+    .robot-section{
+
+        min-height:340px;
+
+    }
+
+    model-viewer{
+
+        height:320px;
+
+    }
+
+    .section-header h2,
+    .robot-header h2{
+
+        font-size:1rem;
+
+    }
+
+    .hero-hud,
+    .micro-data{
+
+        font-size:.55rem;
+
+    }
+
+    .live-indicator{
+
+        font-size:.55rem;
+
+        padding:8px 12px;
+
+    }
+
 }

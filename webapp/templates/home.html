@@ -7,320 +7,188 @@
     <meta charset="UTF-8">
 
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
 
-    <title>RobWeb AI</title>
+    <title>SysRob | Facturación Automática IA</title>
 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- MODEL VIEWER -->
     <script type="module"
             src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
     </script>
-
-    <link rel="stylesheet"
-          href="{% static 'css/style.css' %}">
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
 
 </head>
 
 <body>
 
+    <!-- FX -->
+    <div class="background-glow"></div>
+    <div class="scanlines"></div>
 
-<!-- ========================= -->
-<!-- BACKGROUND FX -->
-<!-- ========================= -->
+    <!-- HEADER -->
+    <header class="top-banner">
 
-<div class="background-grid"></div>
-
-<div class="global-overlay"></div>
-
-
-<!-- ========================= -->
-<!-- HEADER / BANNER -->
-<!-- ========================= -->
-
-<header class="banner" id="banner">
-
-    <img src="{% static 'Banner.jpg' %}"
-         alt="Banner Principal">
-
-    <div class="banner-shadow"></div>
-
-</header>
-
-
-<!-- ========================= -->
-<!-- LOGO -->
-<!-- ========================= -->
-
-<div class="logo-container">
-
-    <img src="{% static 'Logo.png' %}"
-         class="logo"
-         alt="RobWeb Logo">
-
-</div>
-
-
-
-<!-- ========================= -->
-<!-- MAIN CONTENT -->
-<!-- ========================= -->
-
-<main class="main-content">
-
-
-
-    <!-- ========================= -->
-    <!-- HERO VIDEO NOTICIAS -->
-    <!-- ========================= -->
-
-    <section class="hero-news-container">
-
-
-        <div class="hero-overlay">
-
-            <div class="scan-line"></div>
-
-            <div class="noise-overlay"></div>
-
-            <div class="hero-hud top-left">
-                MERCADOLIBRE ONLINE
-            </div>
-
-            <div class="hero-hud top-right">
-                DGI CONNECTED
-            </div>
-
-            <div class="hero-hud bottom-left">
-                RPA ACTIVE
-            </div>
-
-            <div class="hero-hud bottom-right">
-                LIVE TRANSMISSION
-            </div>
-
-        </div>
-
-
-        <video class="hero-video"
-               autoplay
-               muted
-               loop
-               playsinline
-               preload="metadata">
-
-            <source src="{% static 'noticias.mp4' %}"
-                    type="video/mp4">
-
-        </video>
-
+        <img src="{% static 'Banner.jpg' %}"
+             alt="Banner"
+             class="banner-image">
 
         <div class="live-indicator">
 
             <span class="live-dot"></span>
-
-            EN VIVO
-
-        </div>
-
-
-    </section>
-
-
-
-
-
-    <!-- ========================= -->
-    <!-- VIDEO RPA -->
-    <!-- ========================= -->
-
-    <section class="rpa-section glass-container">
-
-
-        <div class="section-header">
-
-            <h2>
-                FACTURACIÓN AUTOMÁTICA IA
-            </h2>
-
-            <span>
-                SISTEMA OPERATIVO EN TIEMPO REAL
-            </span>
+            <span>EN VIVO</span>
 
         </div>
 
+    </header>
 
-        <div class="video-wrapper">
+    <!-- MAIN -->
+    <main class="main-wrapper">
 
+        <!-- NOTICIAS -->
+        <section class="news-section glass-panel">
 
-            <div class="video-overlay">
+            <div class="section-header">
 
-                <div class="scan-line"></div>
+                <span class="section-mini">
+                    EN VIVO
+                </span>
 
-                <div class="noise-overlay"></div>
+                <h1>
+                    FACTURACIÓN AUTOMÁTICA IA
+                </h1>
 
-                <div class="micro-data top-left">
-                    ESCANEANDO ÓRDENES...
+                <p>
+                    SISTEMA OPERATIVO EN TIEMPO REAL
+                </p>
+
+            </div>
+
+            <div class="news-video-wrapper">
+
+                <video class="news-video"
+                       autoplay
+                       muted
+                       loop
+                       playsinline
+                       preload="metadata">
+
+                    <source src="{% static 'noticias.mp4' %}"
+                            type="video/mp4">
+
+                </video>
+
+                <div class="video-overlay"></div>
+                <div class="video-scan"></div>
+
+                <div class="hud-left">
+                    RPA ACTIVE
                 </div>
 
-                <div class="micro-data top-right">
-                    VALIDANDO DATOS
-                </div>
-
-                <div class="micro-data bottom-left">
-                    PDF GENERATED
-                </div>
-
-                <div class="micro-data bottom-right">
-                    FACTURA ADJUNTADA
+                <div class="hud-right">
+                    LIVE TRANSMISSION
                 </div>
 
             </div>
 
+        </section>
 
-            <video class="rpa-video"
-                   autoplay
-                   muted
-                   loop
-                   playsinline
-                   preload="metadata">
+        <!-- VIDEO -->
+        <section class="rpa-section glass-panel">
 
-                <source src="{% static 'models/video.mp4' %}"
-                        type="video/mp4">
+            <div class="section-header">
 
-            </video>
+                <h2>
+                    FACTURACIÓN AUTOMÁTICA IA
+                </h2>
 
+                <p>
+                    MOTOR OPERATIVO EN TIEMPO REAL
+                </p>
 
-        </div>
+            </div>
 
+            <div class="rpa-video-container">
 
-    </section>
+                <video class="rpa-video"
+                       autoplay
+                       muted
+                       loop
+                       playsinline
+                       preload="metadata">
 
+                    <source src="{% static 'models/video.mp4' %}"
+                            type="video/mp4">
 
+                </video>
 
+                <div class="video-overlay"></div>
+                <div class="video-scan"></div>
 
+                <div class="system-status">
 
-    <!-- ========================= -->
-    <!-- ROBOT 3D -->
-    <!-- ========================= -->
+                    <span class="status-dot"></span>
 
-    <section class="robot-section glass-container">
+                    SISTEMA ONLINE
 
+                </div>
 
-        <div class="robot-overlay">
+            </div>
 
-            <div class="scan-line"></div>
+        </section>
 
-            <div class="robot-glow"></div>
+        <!-- ROBOT 3D -->
+        <section class="robot-section glass-panel">
 
-        </div>
+            <div class="section-header">
 
+                <h2>
+                    IA OPERATIVA
+                </h2>
 
-        <div class="robot-header">
+                <p>
+                    MOTOR DE AUTOMATIZACIÓN RPA
+                </p>
 
-            <h2>
-                IA OPERATIVA
-            </h2>
+            </div>
 
-            <span>
-                MOTOR DE AUTOMATIZACIÓN RPA
-            </span>
+            <div class="robot-container">
 
-        </div>
+                <model-viewer
+                    src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+                    alt="Astronaut"
+                    auto-rotate
+                    camera-controls
+                    shadow-intensity="1"
+                    exposure="1"
+                    environment-image="neutral"
+                    loading="lazy">
 
+                </model-viewer>
 
-        <model-viewer
+                <div class="robot-glow"></div>
 
-            src="{% static 'models/robot.glb' %}"
-            alt="Robot IA"
+            </div>
 
-            auto-rotate
-            auto-rotate-delay="0"
+        </section>
 
-            camera-controls
+        <!-- BOTÓN TESLA -->
+        <section class="tesla-button-section">
 
-            shadow-intensity="1"
+            <button class="tesla-button">
 
-            environment-image="neutral"
+                <img src="{% static 'Logo2.png' %}"
+                     alt="Logo Tesla"
+                     class="tesla-logo">
 
-            exposure="1"
+            </button>
 
-            loading="lazy"
+        </section>
 
-            interaction-prompt="none">
-
-        </model-viewer>
-
-
-        <div class="robot-status">
-
-            <span class="status-dot"></span>
-
-            SISTEMA ESTABLE
-
-        </div>
-
-
-    </section>
-
-
-
-
-
-    <!-- ========================= -->
-    <!-- TESLA BUTTON -->
-    <!-- ========================= -->
-
-    <section class="button-section">
-
-
-        <button class="tesla-button">
-
-
-            <div class="button-glow"></div>
-
-
-            <img src="{% static 'Logo2.png' %}"
-                 alt="Logo Tesla">
-
-
-        </button>
-
-
-    </section>
-
-
-</main>
-
-
-
-
-
-<!-- ========================= -->
-<!-- SCROLL EFFECT -->
-<!-- ========================= -->
-
-<script>
-
-    const banner = document.getElementById("banner");
-
-    window.addEventListener("scroll", () => {
-
-        if (window.scrollY > 40) {
-
-            banner.classList.add("banner-small");
-
-        } else {
-
-            banner.classList.remove("banner-small");
-
-        }
-
-    });
-
-</script>
-
+    </main>
 
 </body>
 </html>
