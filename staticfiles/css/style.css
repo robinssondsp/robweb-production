@@ -11,22 +11,26 @@
 :root{
 
     --cyan:#00f0ff;
-    --dark:#020617;
 
-    --glass:rgba(8,15,30,0.45);
+    --bg-dark:#020617;
 
-    --radius:28px;
+    --glass:rgba(8,15,30,.42);
 
-    --scan-speed:3.5s;
+    --radius:clamp(18px,2vw,32px);
 
 }
 
 
 /* ===================================================== */
-/* BODY */
+/* HTML / BODY */
 /* ===================================================== */
 
-html,
+html{
+
+    scroll-behavior:smooth;
+
+}
+
 body{
 
     width:100%;
@@ -34,457 +38,127 @@ body{
 
     overflow-x:hidden;
 
-    font-family:'Orbitron',sans-serif;
-
     background:
     radial-gradient(circle at top,
     #003566 0%,
-    #001d3d 45%,
+    #001d3d 40%,
     #000814 100%);
 
     color:white;
 
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
 }
 
 
 /* ===================================================== */
-/* BACKGROUND */
+/* BACKGROUND FX */
 /* ===================================================== */
 
-.background-grid{
+.background-glow{
 
     position:fixed;
+
     inset:0;
 
     z-index:-3;
 
-    background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-
-    background-size:40px 40px;
+    background:
+    radial-gradient(circle at center,
+    rgba(0,255,255,.08),
+    transparent 65%);
 
 }
 
-.global-overlay{
+.scanlines{
 
     position:fixed;
+
     inset:0;
 
     z-index:-2;
 
-    background:
-    radial-gradient(circle at center,
-    transparent 0%,
-    rgba(0,0,0,0.35) 100%);
-
     pointer-events:none;
-
-}
-
-
-/* ===================================================== */
-/* BANNER */
-/* ===================================================== */
-
-.banner{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:110px;
-
-    z-index:100;
-
-    overflow:hidden;
-
-    backdrop-filter:blur(14px);
-
-    transition:all .35s ease;
-
-}
-
-.banner img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    filter:
-    brightness(.8)
-    contrast(1.08);
-
-}
-
-.banner-small{
-
-    height:82px;
-
-}
-
-.banner-shadow{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    linear-gradient(to bottom,
-    transparent,
-    rgba(0,0,0,.45));
-
-}
-
-
-/* ===================================================== */
-/* LOGO */
-/* ===================================================== */
-
-.logo-container{
-
-    position:fixed;
-
-    top:14px;
-    left:28px;
-
-    z-index:150;
-
-}
-
-.logo{
-
-    height:clamp(58px,7vw,105px);
-
-    object-fit:contain;
-
-    filter:
-    drop-shadow(0 0 20px rgba(0,255,255,.35));
-
-}
-
-
-/* ===================================================== */
-/* MAIN CONTENT */
-/* ===================================================== */
-
-.main-content{
-
-    width:min(94%,1600px);
-
-    margin:auto;
-
-    padding-top:140px;
-    padding-bottom:90px;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:42px;
-
-}
-
-
-/* ===================================================== */
-/* GLASS */
-/* ===================================================== */
-
-.glass-container{
-
-    position:relative;
-
-    background:var(--glass);
-
-    border:
-    1px solid rgba(255,255,255,.06);
-
-    backdrop-filter:blur(20px);
-
-    border-radius:var(--radius);
-
-    overflow:hidden;
-
-    box-shadow:
-    0 20px 60px rgba(0,0,0,.45),
-    inset 0 0 30px rgba(255,255,255,.03);
-
-}
-
-
-/* ===================================================== */
-/* HERO VIDEO */
-/* ===================================================== */
-
-.hero-news-container{
-
-    position:relative;
-
-    width:100%;
-    height:clamp(260px,42vw,560px);
-
-    border-radius:32px;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 30px 70px rgba(0,0,0,.45);
-
-}
-
-.hero-video{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-    filter:
-    brightness(.75)
-    contrast(1.1);
-
-}
-
-
-/* ===================================================== */
-/* HERO OVERLAY */
-/* ===================================================== */
-
-.hero-overlay{
-
-    position:absolute;
-    inset:0;
-
-    z-index:20;
-
-    pointer-events:none;
-
-}
-
-
-/* ===================================================== */
-/* RPA SECTION */
-/* ===================================================== */
-
-.rpa-section{
-
-    width:100%;
-
-    padding:26px;
-
-}
-
-.section-header{
-
-    display:flex;
-    flex-direction:column;
-
-    gap:10px;
-
-    margin-bottom:24px;
-
-}
-
-.section-header h2{
-
-    font-size:clamp(1.2rem,2vw,2rem);
-
-    letter-spacing:3px;
-
-    color:var(--cyan);
-
-}
-
-.section-header span{
-
-    font-size:.75rem;
-
-    letter-spacing:2px;
-
-    opacity:.8;
-
-}
-
-
-/* ===================================================== */
-/* VIDEO WRAPPER */
-/* ===================================================== */
-
-.video-wrapper{
-
-    position:relative;
-
-    width:100%;
-
-    border-radius:22px;
-
-    overflow:hidden;
-
-}
-
-.rpa-video{
-
-    width:100%;
-
-    aspect-ratio:16/9;
-
-    object-fit:cover;
-
-    display:block;
-
-}
-
-
-/* ===================================================== */
-/* VIDEO OVERLAY */
-/* ===================================================== */
-
-.video-overlay{
-
-    position:absolute;
-    inset:0;
-
-    z-index:20;
-
-    pointer-events:none;
-
-}
-
-
-/* ===================================================== */
-/* SCAN LINE */
-/* ===================================================== */
-
-.scan-line{
-
-    position:absolute;
-
-    left:0;
-
-    width:100%;
-    height:2px;
-
-    background:
-    linear-gradient(to right,
-    transparent,
-    var(--cyan),
-    transparent);
-
-    opacity:.9;
-
-    animation:
-    scanMove var(--scan-speed)
-    linear infinite;
-
-}
-
-@keyframes scanMove{
-
-    0%{
-        top:0%;
-    }
-
-    100%{
-        top:100%;
-    }
-
-}
-
-
-/* ===================================================== */
-/* NOISE */
-/* ===================================================== */
-
-.noise-overlay{
-
-    position:absolute;
-    inset:0;
-
-    opacity:.05;
 
     background-image:
-    radial-gradient(rgba(255,255,255,.25) 1px, transparent 1px);
+    linear-gradient(
+        rgba(255,255,255,.02) 1px,
+        transparent 1px
+    );
 
-    background-size:3px 3px;
+    background-size:100% 4px;
 
-    mix-blend-mode:screen;
+    opacity:.12;
 
 }
 
 
 /* ===================================================== */
-/* MICRO DATA */
+/* HEADER */
 /* ===================================================== */
 
-.micro-data,
-.hero-hud{
+.top-banner{
 
-    position:absolute;
+    position:relative;
 
-    font-size:.7rem;
+    width:100%;
 
-    letter-spacing:2px;
-
-    color:rgba(0,255,255,.9);
-
-    text-shadow:
-    0 0 10px rgba(0,255,255,.7);
+    overflow:hidden;
 
 }
 
-.top-left{
-    top:18px;
-    left:20px;
-}
+.banner-image{
 
-.top-right{
-    top:18px;
-    right:20px;
-}
+    width:100%;
 
-.bottom-left{
-    bottom:18px;
-    left:20px;
-}
+    height:auto;
 
-.bottom-right{
-    bottom:18px;
-    right:20px;
+    min-height:140px;
+
+    max-height:520px;
+
+    object-fit:cover;
+
+    display:block;
+
 }
 
 
 /* ===================================================== */
-/* LIVE */
+/* LIVE INDICATOR */
 /* ===================================================== */
 
 .live-indicator{
 
     position:absolute;
 
-    top:20px;
-    right:20px;
+    top:clamp(12px,2vw,24px);
 
-    z-index:25;
+    right:clamp(12px,2vw,24px);
+
+    z-index:30;
 
     display:flex;
     align-items:center;
 
     gap:10px;
 
-    padding:10px 16px;
+    padding:
+    clamp(8px,1vw,12px)
+    clamp(12px,1.5vw,18px);
 
     border-radius:999px;
 
     background:
-    rgba(255,0,0,.14);
+    rgba(255,0,0,.15);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(8px);
 
-    font-size:.75rem;
+    font-size:
+    clamp(.6rem,.8vw,.9rem);
 
     letter-spacing:2px;
 
@@ -521,136 +195,275 @@ body{
 
 
 /* ===================================================== */
-/* ROBOT */
+/* MAIN WRAPPER */
 /* ===================================================== */
 
-.robot-section{
+.main-wrapper{
 
-    position:relative;
+    width:min(96%,1800px);
 
-    width:100%;
+    margin-inline:auto;
 
-    min-height:650px;
+    padding-inline:
+    clamp(12px,2vw,30px);
 
-    padding:26px;
+    padding-top:
+    clamp(18px,3vw,50px);
+
+    padding-bottom:
+    clamp(40px,5vw,100px);
 
     display:flex;
-    align-items:center;
-    justify-content:center;
 
-    overflow:hidden;
+    flex-direction:column;
+
+    gap:
+    clamp(24px,3vw,50px);
 
 }
 
-.robot-header{
 
-    position:absolute;
+/* ===================================================== */
+/* GLASS */
+/* ===================================================== */
 
-    top:24px;
-    left:28px;
+.glass-panel{
 
-    z-index:20;
+    position:relative;
+
+    background:var(--glass);
+
+    border:
+    1px solid rgba(255,255,255,.06);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.45),
+    inset 0 0 25px rgba(255,255,255,.03);
+
+}
+
+
+/* ===================================================== */
+/* SECTION */
+/* ===================================================== */
+
+.news-section,
+.rpa-section,
+.robot-section{
+
+    padding:
+    clamp(16px,2vw,30px);
+
+}
+
+
+/* ===================================================== */
+/* HEADERS */
+/* ===================================================== */
+
+.section-header{
 
     display:flex;
+
     flex-direction:column;
 
     gap:10px;
 
+    margin-bottom:
+    clamp(16px,2vw,26px);
+
 }
 
-.robot-header h2{
+.section-mini{
 
-    font-size:clamp(1.2rem,2vw,2rem);
+    font-size:
+    clamp(.55rem,.7vw,.85rem);
 
     letter-spacing:3px;
+
+    opacity:.75;
+
+}
+
+.section-header h1,
+.section-header h2{
+
+    font-size:
+    clamp(1rem,2vw,2rem);
+
+    letter-spacing:2px;
+
+    line-height:1.2;
 
     color:var(--cyan);
 
 }
 
-.robot-header span{
+.section-header p{
 
-    font-size:.75rem;
+    font-size:
+    clamp(.7rem,1vw,1rem);
 
-    letter-spacing:2px;
+    opacity:.75;
 
-    opacity:.8;
+    letter-spacing:1px;
 
 }
 
-.robot-overlay{
+
+/* ===================================================== */
+/* VIDEO CONTAINERS */
+/* ===================================================== */
+
+.news-video-wrapper,
+.rpa-video-container{
+
+    position:relative;
+
+    width:100%;
+
+    overflow:hidden;
+
+    border-radius:
+    clamp(16px,2vw,28px);
+
+}
+
+
+/* ===================================================== */
+/* VIDEOS */
+/* ===================================================== */
+
+.news-video,
+.rpa-video{
+
+    width:100%;
+
+    height:auto;
+
+    aspect-ratio:16/9;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:
+    clamp(16px,2vw,28px);
+
+}
+
+
+/* ===================================================== */
+/* VIDEO FX */
+/* ===================================================== */
+
+.video-overlay{
 
     position:absolute;
+
     inset:0;
 
-    z-index:10;
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(0,0,0,.1),
+        rgba(0,0,0,.45)
+    );
 
     pointer-events:none;
 
 }
 
-.robot-glow{
+.video-scan{
 
     position:absolute;
-    inset:0;
 
-    background:
-    radial-gradient(circle at center,
-    rgba(0,255,255,.12),
-    transparent 65%);
-
-}
-
-model-viewer{
-
-    position:relative;
-
-    z-index:5;
+    top:0;
+    left:0;
 
     width:100%;
-    height:650px;
+    height:2px;
 
-    display:block;
+    z-index:40;
 
-    background:transparent;
+    background:
+    linear-gradient(
+        to right,
+        transparent,
+        rgba(0,255,255,.95),
+        transparent
+    );
 
-    --poster-color:transparent;
+    animation:scanMove 3s linear infinite;
+
+}
+
+@keyframes scanMove{
+
+    0%{
+        top:0%;
+    }
+
+    100%{
+        top:100%;
+    }
 
 }
 
 
 /* ===================================================== */
-/* ROBOT STATUS */
+/* HUD */
 /* ===================================================== */
 
-.robot-status{
+.hud-left,
+.hud-right,
+.system-status{
 
     position:absolute;
 
-    bottom:26px;
-    left:50%;
+    z-index:50;
 
-    transform:translateX(-50%);
+    color:var(--cyan);
 
-    z-index:30;
+    font-size:
+    clamp(.55rem,.7vw,.85rem);
+
+    letter-spacing:2px;
+
+    text-shadow:
+    0 0 12px rgba(0,255,255,.8);
+
+}
+
+.hud-left{
+
+    top:18px;
+    left:18px;
+
+}
+
+.hud-right{
+
+    top:18px;
+    right:18px;
+
+}
+
+.system-status{
+
+    bottom:18px;
+    left:18px;
 
     display:flex;
     align-items:center;
 
-    gap:12px;
-
-    padding:12px 22px;
-
-    border-radius:999px;
-
-    background:
-    rgba(0,255,255,.08);
-
-    backdrop-filter:blur(10px);
-
-    font-size:.8rem;
-
-    letter-spacing:2px;
+    gap:10px;
 
 }
 
@@ -664,62 +477,155 @@ model-viewer{
     background:var(--cyan);
 
     box-shadow:
-    0 0 16px var(--cyan);
+    0 0 14px var(--cyan);
 
 }
 
 
 /* ===================================================== */
-/* BUTTON */
+/* ROBOT SECTION */
 /* ===================================================== */
 
-.button-section{
+.robot-section{
+
+    position:relative;
+
+}
+
+.robot-container{
+
+    position:relative;
 
     width:100%;
 
-    display:flex;
-    justify-content:center;
+    min-height:
+    clamp(320px,60vw,760px);
+
+    height:70dvh;
+
+    max-height:850px;
+
+    border-radius:
+    clamp(18px,2vw,32px);
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(0,255,255,.12),
+        rgba(0,0,0,.96)
+    );
 
 }
+
+
+/* ===================================================== */
+/* MODEL VIEWER */
+/* ===================================================== */
+
+model-viewer{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    background:transparent;
+
+    --poster-color:transparent;
+
+    touch-action:pan-y;
+
+    will-change:transform;
+
+}
+
+
+/* ===================================================== */
+/* ROBOT GLOW */
+/* ===================================================== */
+
+.robot-glow{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(0,255,255,.12),
+    transparent 70%);
+
+}
+
+
+/* ===================================================== */
+/* BUTTON SECTION */
+/* ===================================================== */
+
+.tesla-button-section{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* ===================================================== */
+/* TESLA BUTTON */
+/* ===================================================== */
 
 .tesla-button{
 
     position:relative;
 
-    width:280px;
-    height:95px;
+    width:
+    clamp(180px,26vw,320px);
+
+    height:
+    clamp(65px,8vw,100px);
 
     border:none;
 
-    border-radius:24px;
-
-    cursor:pointer;
+    border-radius:
+    clamp(18px,2vw,28px);
 
     overflow:hidden;
 
+    cursor:pointer;
+
     background:
     linear-gradient(
-    135deg,
-    #f7d774,
-    #c89b14,
-    #f7d774);
+        135deg,
+        #f7d774,
+        #c89b14,
+        #f7d774
+    );
 
     box-shadow:
     0 20px 50px rgba(0,0,0,.45);
 
-    transition:.35s ease;
+    transition:
+    transform .35s ease;
 
 }
 
 .tesla-button:hover{
 
     transform:
-    translateY(-6px)
+    translateY(-4px)
     scale(1.02);
 
 }
 
-.tesla-button img{
+.tesla-logo{
 
     width:72%;
 
@@ -733,160 +639,72 @@ model-viewer{
 
 }
 
-.button-glow{
-
-    position:absolute;
-    inset:0;
-
-    background:
-    linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,.35),
-    transparent);
-
-    transform:translateX(-100%);
-
-    animation:buttonSweep 4s infinite;
-
-}
-
-@keyframes buttonSweep{
-
-    100%{
-        transform:translateX(100%);
-    }
-
-}
-
 
 /* ===================================================== */
-/* RESPONSIVE */
+/* TABLET */
 /* ===================================================== */
 
 @media (max-width:992px){
 
-    .main-content{
+    .robot-container{
 
-        gap:34px;
-
-    }
-
-    .robot-section{
-
-        min-height:560px;
+        height:58dvh;
 
     }
 
 }
 
+
+/* ===================================================== */
+/* MOBILE */
+/* ===================================================== */
 
 @media (max-width:768px){
 
-    .banner{
+    .main-wrapper{
 
-        height:85px;
-
-    }
-
-    .logo{
-
-        height:58px;
+        width:100%;
 
     }
 
-    .main-content{
+    .robot-container{
 
-        width:95%;
+        min-height:320px;
 
-        padding-top:115px;
-
-        gap:28px;
-
-    }
-
-    .hero-news-container{
-
-        height:260px;
-
-        border-radius:24px;
-
-    }
-
-    .rpa-section,
-    .robot-section{
-
-        padding:18px;
-
-    }
-
-    .robot-section{
-
-        min-height:420px;
-
-    }
-
-    model-viewer{
-
-        height:420px;
-
-    }
-
-    .tesla-button{
-
-        width:220px;
-        height:78px;
+        height:52dvh;
 
     }
 
 }
 
 
+/* ===================================================== */
+/* SMALL MOBILE */
+/* ===================================================== */
+
 @media (max-width:480px){
 
-    .logo{
+    .robot-container{
 
-        height:50px;
+        height:42dvh;
 
-    }
-
-    .hero-news-container{
-
-        height:220px;
+        min-height:260px;
 
     }
 
-    .robot-section{
+    .section-header h1,
+    .section-header h2{
 
-        min-height:340px;
-
-    }
-
-    model-viewer{
-
-        height:320px;
+        font-size:
+        clamp(.95rem,5vw,1.4rem);
 
     }
 
-    .section-header h2,
-    .robot-header h2{
-
-        font-size:1rem;
-
-    }
-
-    .hero-hud,
-    .micro-data{
+    .hud-left,
+    .hud-right,
+    .system-status{
 
         font-size:.55rem;
-
-    }
-
-    .live-indicator{
-
-        font-size:.55rem;
-
-        padding:8px 12px;
 
     }
 
