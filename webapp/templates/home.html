@@ -14,6 +14,7 @@
 
     <title>SysRob | Facturación Automática IA</title>
 
+    <!-- CSS -->
     <link rel="stylesheet"
           href="{% static 'css/style.css' %}">
 
@@ -28,9 +29,13 @@
 
     <!-- BACKGROUND FX -->
     <div class="background-glow"></div>
+
     <div class="scanlines"></div>
 
+    <!-- ===================================================== -->
     <!-- HEADER -->
+    <!-- ===================================================== -->
+
     <header class="top-banner">
 
         <img src="{% static 'Banner.jpg' %}"
@@ -49,13 +54,19 @@
 
     </header>
 
+    <!-- ===================================================== -->
     <!-- MAIN -->
+    <!-- ===================================================== -->
+
     <main class="main-wrapper">
 
-        <!-- NEWS SECTION -->
-        <section class="news-section glass-panel">
+        <!-- ===================================================== -->
+        <!-- LIVE NEWS FULLWIDTH -->
+        <!-- ===================================================== -->
 
-            <div class="section-header">
+        <section class="live-news-section">
+
+            <div class="live-news-header">
 
                 <span class="section-mini">
                     TRANSMISIÓN EN TIEMPO REAL
@@ -71,9 +82,9 @@
 
             </div>
 
-            <div class="news-video-wrapper">
+            <div class="live-video-wrapper">
 
-                <video class="news-video"
+                <video class="live-video"
                        autoplay
                        muted
                        loop
@@ -85,7 +96,7 @@
 
                 </video>
 
-                <div class="video-overlay"></div>
+                <div class="live-overlay"></div>
 
                 <div class="video-scan"></div>
 
@@ -101,7 +112,10 @@
 
         </section>
 
-        <!-- VIDEO PRINCIPAL -->
+        <!-- ===================================================== -->
+        <!-- VIDEO RPA -->
+        <!-- ===================================================== -->
+
         <section class="rpa-section glass-panel">
 
             <div class="section-header">
@@ -152,7 +166,10 @@
 
         </section>
 
-        <!-- ROBOT SECTION -->
+        <!-- ===================================================== -->
+        <!-- ROBOT 3D -->
+        <!-- ===================================================== -->
+
         <section class="robot-section glass-panel">
 
             <div class="section-header">
@@ -191,7 +208,10 @@
 
         </section>
 
+        <!-- ===================================================== -->
         <!-- TESLA BUTTON -->
+        <!-- ===================================================== -->
+
         <section class="tesla-button-section">
 
             <button class="tesla-button">

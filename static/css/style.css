@@ -875,4 +875,131 @@ model-viewer{
     }
 
 }
+/* ===================================================== */
+/* LIVE NEWS CINEMATIC */
+/* ===================================================== */
+
+.live-news-section{
+
+    width:100%;
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+/* ===================================================== */
+/* HEADER */
+/* ===================================================== */
+
+.live-news-header{
+
+    width:min(92%,1600px);
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    padding-inline:
+    clamp(10px,2vw,30px);
+
+}
+
+
+/* ===================================================== */
+/* VIDEO WRAPPER */
+/* ===================================================== */
+
+.live-video-wrapper{
+
+    position:relative;
+
+    width:100%;
+
+    overflow:hidden;
+
+    background:black;
+
+}
+
+
+/* ===================================================== */
+/* LIVE VIDEO */
+/* ===================================================== */
+
+.live-video{
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+    aspect-ratio:16/7;
+
+    object-fit:cover;
+
+}
+
+
+/* ===================================================== */
+/* LIVE OVERLAY */
+/* ===================================================== */
+
+.live-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.55)
+    );
+
+    pointer-events:none;
+
+}
+
+
+/* ===================================================== */
+/* MOBILE */
+/* ===================================================== */
+
+@media (max-width:768px){
+
+    .live-video{
+
+        aspect-ratio:16/10;
+
+    }
+
+}
+
+
+/* ===================================================== */
+/* SMALL MOBILE */
+/* ===================================================== */
+
+@media (max-width:480px){
+
+    .live-video{
+
+        aspect-ratio:16/11;
+
+    }
+
+}
 }
