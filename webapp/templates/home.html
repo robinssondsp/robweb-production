@@ -14,7 +14,8 @@
 
     <title>SysRob | Facturación Automática IA</title>
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
 
     <!-- MODEL VIEWER -->
     <script type="module"
@@ -25,7 +26,7 @@
 
 <body>
 
-    <!-- FX -->
+    <!-- BACKGROUND FX -->
     <div class="background-glow"></div>
     <div class="scanlines"></div>
 
@@ -33,13 +34,16 @@
     <header class="top-banner">
 
         <img src="{% static 'Banner.jpg' %}"
-             alt="Banner"
+             alt="Banner Principal"
              class="banner-image">
 
         <div class="live-indicator">
 
             <span class="live-dot"></span>
-            <span>EN VIVO</span>
+
+            <span>
+                EN VIVO
+            </span>
 
         </div>
 
@@ -48,13 +52,13 @@
     <!-- MAIN -->
     <main class="main-wrapper">
 
-        <!-- NOTICIAS -->
+        <!-- NEWS SECTION -->
         <section class="news-section glass-panel">
 
             <div class="section-header">
 
                 <span class="section-mini">
-                    EN VIVO
+                    TRANSMISIÓN EN TIEMPO REAL
                 </span>
 
                 <h1>
@@ -62,7 +66,7 @@
                 </h1>
 
                 <p>
-                    SISTEMA OPERATIVO EN TIEMPO REAL
+                    MOTOR RPA OPERANDO EN VIVO
                 </p>
 
             </div>
@@ -74,7 +78,7 @@
                        muted
                        loop
                        playsinline
-                       preload="metadata">
+                       preload="none">
 
                     <source src="{% static 'noticias.mp4' %}"
                             type="video/mp4">
@@ -82,6 +86,7 @@
                 </video>
 
                 <div class="video-overlay"></div>
+
                 <div class="video-scan"></div>
 
                 <div class="hud-left">
@@ -96,17 +101,21 @@
 
         </section>
 
-        <!-- VIDEO -->
+        <!-- VIDEO PRINCIPAL -->
         <section class="rpa-section glass-panel">
 
             <div class="section-header">
 
+                <span class="section-mini">
+                    SISTEMA OPERATIVO
+                </span>
+
                 <h2>
-                    FACTURACIÓN AUTOMÁTICA IA
+                    FACTURACIÓN AUTOMÁTICA
                 </h2>
 
                 <p>
-                    MOTOR OPERATIVO EN TIEMPO REAL
+                    IA + AUTOMATIZACIÓN + DGI
                 </p>
 
             </div>
@@ -118,7 +127,7 @@
                        muted
                        loop
                        playsinline
-                       preload="metadata">
+                       preload="none">
 
                     <source src="{% static 'models/video.mp4' %}"
                             type="video/mp4">
@@ -126,13 +135,16 @@
                 </video>
 
                 <div class="video-overlay"></div>
+
                 <div class="video-scan"></div>
 
                 <div class="system-status">
 
                     <span class="status-dot"></span>
 
-                    SISTEMA ONLINE
+                    <span>
+                        SISTEMA ONLINE
+                    </span>
 
                 </div>
 
@@ -140,17 +152,21 @@
 
         </section>
 
-        <!-- ROBOT 3D -->
+        <!-- ROBOT SECTION -->
         <section class="robot-section glass-panel">
 
             <div class="section-header">
 
+                <span class="section-mini">
+                    IA INTERACTIVA
+                </span>
+
                 <h2>
-                    IA OPERATIVA
+                    ROBOT OPERATIVO RPA
                 </h2>
 
                 <p>
-                    MOTOR DE AUTOMATIZACIÓN RPA
+                    MOTOR DE FACTURACIÓN AUTÓNOMA
                 </p>
 
             </div>
@@ -158,8 +174,8 @@
             <div class="robot-container">
 
                 <model-viewer
-                    src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-                    alt="Astronaut"
+                    src="{% static 'robot.glb' %}"
+                    alt="Robot IA"
                     auto-rotate
                     camera-controls
                     shadow-intensity="1"
@@ -175,13 +191,13 @@
 
         </section>
 
-        <!-- BOTÓN TESLA -->
+        <!-- TESLA BUTTON -->
         <section class="tesla-button-section">
 
             <button class="tesla-button">
 
-                <img src="{% static 'Logo2.png' %}"
-                     alt="Logo Tesla"
+                <img src="{% static 'Logo.png' %}"
+                     alt="Logo"
                      class="tesla-logo">
 
             </button>
@@ -191,4 +207,5 @@
     </main>
 
 </body>
+
 </html>
